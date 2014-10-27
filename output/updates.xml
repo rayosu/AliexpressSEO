@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<updateDescriptor baseUrl="">
+  <entry targetMediaFileId="27" updatableVersionMin="" updatableVersionMax="" fileName="AliexpressSEO_windows_1_0_1.exe" newVersion="1.0.1" newMediaFileId="27" fileSize="33232896" bundledJre="windows-x86-1.8.0_20" archive="false">
+    <comment language="zh_CN" />
+  </entry>
+</updateDescriptor>
+

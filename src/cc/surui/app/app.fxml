@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cc.surui.app.controllers.MainController">
+  <children>
+      <GridPane hgap="10.0" prefHeight="30.0" prefWidth="1158.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="71.66665649414062" minWidth="0.0" prefWidth="60.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="640.0" minWidth="10.0" prefWidth="86.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="640.0" minWidth="10.0" prefWidth="92.66665649414062" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="361.3333740234375" minWidth="26.0" prefWidth="121.33334350585938" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="918.0" minWidth="10.0" prefWidth="69.66665649414062" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.99993896484375" minWidth="48.66668701171875" prefWidth="179.33334350585938" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.99993896484375" minWidth="46.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.99993896484375" minWidth="48.66668701171875" prefWidth="67.6666259765625" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.99993896484375" minWidth="8.0" prefWidth="63.6666259765625" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="39.0" prefWidth="197.6666259765625" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="346.0" minWidth="60.0" prefWidth="162.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="店铺ID:">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label text="店铺名称:" GridPane.columnIndex="4" />
+            <Button fx:id="storeButton" mnemonicParsing="false" text="添加新店铺" GridPane.columnIndex="2">
+               <tooltip>
+                  <Tooltip text="修改店铺ID后点击即可" />
+               </tooltip>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="326.0" layoutY="17.0" text="产品数:" GridPane.columnIndex="6" />
+            <TextField fx:id="storeId" promptText="输入店铺ID" text="710191" GridPane.columnIndex="1">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <Text fx:id="storeName" fill="BLUE" layoutX="683.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Party Store" GridPane.columnIndex="5" />
+            <MenuButton fx:id="changeButton" mnemonicParsing="false" text="变更店铺" GridPane.columnIndex="3">
+              <items>
+                  <MenuItem mnemonicParsing="false" text="添加店铺" />
+              </items>
+               <tooltip>
+                  <Tooltip text="切换店铺" />
+               </tooltip>
+            </MenuButton>
+            <Text fx:id="productCount" fill="BLUE" layoutX="641.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="999" GridPane.columnIndex="7" />
+            <Label layoutX="815.0" layoutY="14.0" text="关键词数:" GridPane.columnIndex="8" />
+            <Text fx:id="keywordCount" fill="BLUE" layoutX="874.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="999" GridPane.columnIndex="9" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+         </VBox.margin>
+      </GridPane>
+      <TabPane prefHeight="715.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE" tabMinHeight="30.0" tabMinWidth="120.0">
+        <tabs>
+            <Tab text="产品列表">
+               <content>
+                  <VBox>
+                     <children>
+                        <HBox prefHeight="48.0" prefWidth="1280.0">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                              <Button fx:id="syncButton" minHeight="50.0" mnemonicParsing="false" text="同步产品">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <tooltip>
+                                    <Tooltip text="同步网店产品列表到本地" />
+                                 </tooltip>
+                                 <HBox.margin>
+                                    <Insets right="50.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <TextField fx:id="pSearchText" promptText="产品名称或ID">
+                                 <HBox.margin>
+                                    <Insets top="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button fx:id="pSearchButton" mnemonicParsing="false" text="查找">
+                                 <HBox.margin>
+                                    <Insets right="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="firstPageButton" layoutX="20.0" layoutY="15.0" minHeight="50.0" mnemonicParsing="false" text="|&lt;&lt;">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <tooltip>
+                                    <Tooltip text="首页" />
+                                 </tooltip>
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="lastPageButton" layoutX="90.0" layoutY="15.0" minHeight="50.0" mnemonicParsing="false" text="&lt;&lt;">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <tooltip>
+                                    <Tooltip text="上一页" />
+                                 </tooltip>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Button>
+                              <TextField fx:id="pageText" alignment="CENTER_RIGHT" editable="false" prefWidth="35.0" promptText="页数" text="1">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" top="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button fx:id="nextPageButton" layoutX="140.0" layoutY="15.0" minHeight="50.0" mnemonicParsing="false" text="&gt;&gt;">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <tooltip>
+                                    <Tooltip text="下一页" />
+                                 </tooltip>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Label text="每页显示:">
+                                 <HBox.margin>
+                                    <Insets top="25.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="pageSizeText" alignment="CENTER_RIGHT" layoutX="463.0" layoutY="35.0" prefWidth="50.0" promptText="页数" text="20">
+                                 <HBox.margin>
+                                    <Insets right="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <CheckBox fx:id="hidePicCheckBox" mnemonicParsing="false" text="显示产品图片">
+                                 <HBox.margin>
+                                    <Insets right="20.0" top="25.0" />
+                                 </HBox.margin>
+                              </CheckBox>
+                              <Button fx:id="exportAllProducts" layoutX="20.0" layoutY="15.0" minHeight="50.0" mnemonicParsing="false" text="导出所有产品" visible="false">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <tooltip>
+                                    <Tooltip text="同步网店产品列表到本地" />
+                                 </tooltip>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <TableView fx:id="productGrid" prefHeight="610.0" prefWidth="1280.0">
+                           <columns>
+                              <TableColumn fx:id="productId" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="-1.0" text="ID" />
+                              <TableColumn fx:id="productPic" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="图片" />
+                              <TableColumn fx:id="productName" minWidth="571.0" prefWidth="602.0" style="align: center;" text="产品名称" />
+                              <TableColumn fx:id="keyword1" editable="false" minWidth="0.0" prefWidth="204.0" text="关键词1" />
+                              <TableColumn fx:id="keyword2" prefWidth="201.0" text="关键词2" />
+                              <TableColumn fx:id="keyword3" prefWidth="191.0" text="关键词3" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+          <Tab text="设定关键词">
+               <content>
+                  <VBox>
+                     <children>
+                        <HBox prefHeight="48.0" prefWidth="1280.0">
+                           <children>
+                              <Button fx:id="keywordButton" minHeight="50.0" mnemonicParsing="false" text="抓取关键词">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <tooltip>
+                                    <Tooltip text="抓取产品关键词到本地" />
+                                 </tooltip>
+                                 <HBox.margin>
+                                    <Insets right="50.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <TextField fx:id="keywordText" prefHeight="23.0" prefWidth="292.0">
+                                 <HBox.margin>
+                                    <Insets top="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button fx:id="addKeywordButton" mnemonicParsing="false" text="添加关键词">
+                                 <HBox.margin>
+                                    <Insets right="10.0" top="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="delKeywordButton" layoutX="445.0" layoutY="35.0" mnemonicParsing="false" text="删除关键词">
+                                 <HBox.margin>
+                                    <Insets top="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <TableView fx:id="keywordGrid" prefHeight="610.0" prefWidth="1280.0">
+                          <columns>
+                              <TableColumn fx:id="keywordId" editable="false" prefWidth="58.99999618530276" text="ID" visible="false" />
+                            <TableColumn fx:id="keyword" prefWidth="476.00000381469727" style="align: center;" text="关键词" />
+                            <TableColumn fx:id="results" editable="false" minWidth="0.0" prefWidth="96.66668701171875" text="搜索本店产品数" />
+                              <TableColumn fx:id="topRank" prefWidth="100.0" text="最高排名" />
+                              <TableColumn fx:id="avgRank" prefWidth="95.0" text="平均排名" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </content></Tab>
+          <Tab text="排名分析">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <VBox>
+                           <children>
+                              <HBox prefHeight="48.0" prefWidth="1280.0">
+                                 <children>
+                                    <Button fx:id="searchButton" minHeight="50.0" mnemonicParsing="false" text="抓取排名">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip text="根据关键词检索产品排名" />
+                                       </tooltip>
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="exportButton" layoutX="20.0" layoutY="15.0" minHeight="50.0" mnemonicParsing="false" text="导出Excel">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip text="根据关键词检索产品排名" />
+                                       </tooltip>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                            <SplitPane dividerPositions="0.22271714922049" focusTraversable="true" minHeight="600.0" prefHeight="610.0" prefWidth="1280.0">
+                              <items>
+                                    <BorderPane minWidth="300.0">
+                                       <center>
+                                          <TableView fx:id="rankProductGrid" BorderPane.alignment="CENTER">
+                                            <columns>
+                                              <TableColumn fx:id="rankProductId" maxWidth="150.0" minWidth="100.0" prefWidth="100.0" style="align: right;" text="产品ID" />
+                                              <TableColumn fx:id="rankProductName" minWidth="200.0" prefWidth="219.0" text="产品名称" />
+                                            </columns>
+                                          </TableView>
+                                       </center>
+                                       <top>
+                                          <HBox BorderPane.alignment="CENTER">
+                                             <children>
+                                                <TextField fx:id="searchText" prefWidth="255.0" promptText="输入ID或名称检索" />
+                                                <Button mnemonicParsing="false" text="查找" textAlignment="CENTER">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                       </top>
+                                    </BorderPane>
+                                    <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                       <top>
+                                          <HBox fx:id="keywordTabs" minHeight="35.0" prefWidth="989.0" BorderPane.alignment="CENTER">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </HBox>
+                                       </top>
+                                       <center>
+                                          <LineChart fx:id="lineChart" prefHeight="663.0" prefWidth="970.0" BorderPane.alignment="CENTER">
+                                            <xAxis>
+                                              <CategoryAxis label="点击左侧产品" prefHeight="47.0" prefWidth="914.0" side="TOP" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis lowerBound="1.0" minorTickCount="10" side="LEFT" tickLabelGap="0.0" />
+                                            </yAxis>
+                                             <cursor>
+                                                <Cursor fx:constant="CROSSHAIR" />
+                                             </cursor>
+                                          </LineChart>
+                                       </center>
+                                    </BorderPane>
+                              </items>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                            </SplitPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </TabPane>
+    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+      <children>
+        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" prefHeight="16.0" prefWidth="37.0" text="状态:" HBox.hgrow="ALWAYS">
+          <font>
+            <Font size="11.0" fx:id="x3" />
+          </font>
+        </Label>
+        <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="appStatus" textFill="RED" />
+               </children></Pane>
+        <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
+      </children>
+      <padding>
+        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+      </padding>
+    </HBox>
+  </children>
+</VBox>
